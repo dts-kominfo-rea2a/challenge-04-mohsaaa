@@ -8,7 +8,21 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+//paramDate berisikan array dari variabel dates & paramPos berisikan posisi index dari array
+const createDate = (paramDate, paramPos) => {
+  const arrayDate = [];
+  for (let counter = 0; counter < paramDate.length; counter++) {
+    // dibagi 1000 utk merubah hasil epoch time dari milisecond ke second
+    arrayDate.push(Date.parse(paramDate[counter]) / 1000);
+  }
+  // kondisi jika indexnya tidak ada/undefind maka akan mengembalik seluruh isi array
+  // kondisi else menampilkan array sesuai dengan posisi index yg ada pada argumen
+  if (paramPos === undefined) {
+    return arrayDate.sort().join("-").toString();
+  } else {
+    return arrayDate[paramPos].toString();
+  }
+}
 
 // ! JANGAN DIMODIFIKASI
 (() => {
